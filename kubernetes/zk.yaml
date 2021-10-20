@@ -14,12 +14,15 @@ spec:
   selector:
    app: zk-app
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   namespace: apache
   name: zk
 spec:
+  selector:
+      matchLabels:
+        app: zk-app # has to match .spec.template.metadata.labels
   serviceName: zk-service
   replicas: 1
   template:

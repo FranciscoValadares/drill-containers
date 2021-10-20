@@ -16,12 +16,15 @@ spec:
   selector:
    app: drill-app
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   namespace: apache
   name: drillbit
 spec:
+  selector:
+      matchLabels:
+        app: drill-app # has to match .spec.template.metadata.labels
   serviceName: drill-service
   replicas: 1
   template:
