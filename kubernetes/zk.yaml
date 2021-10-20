@@ -40,7 +40,7 @@ spec:
       containers:
       - name: zk-pod
         imagePullPolicy: Always
-        image: agirish/zookeeper:3.4.10
+        image: zookeeper:3.7.0
         ports:
         - containerPort: 2181
           name: client
